@@ -1,0 +1,12 @@
+
+
+
+<div class="col-sm-11 col-xs-12 blog-content">
+  <h2 class="text-center"><%= @post.title %></h2>
+  <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
+  <div><%= raw @post.content %></div>
+  <div>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+  <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure"} %>
+</div>
+</div>
