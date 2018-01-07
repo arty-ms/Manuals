@@ -36,8 +36,14 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Connect to social</h3>
+<div class="soc_menu">
+        <li><%= link_to '', omniauth_authorize_path(resource_name, 'twitter'), class: 'fa fa-twitter' %></li>
+        <li><%= link_to '', omniauth_authorize_path(resource_name, 'vkontakte'), class: 'fa fa-vk' %></li>  
+        <li><%= link_to '', omniauth_authorize_path(resource_name, 'facebook'), class: 'fa fa-facebook' %></li> 
+  </div> 
 
+<h3>Cancel my account</h3>
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

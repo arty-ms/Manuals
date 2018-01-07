@@ -5,8 +5,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    session[:current_user_id] = user.id
   end
 
+  def create
+    if user = User.authenticate(params[:email], params[:password])
+      session[:current_user_id] = user.id
+  end
   # # GET /users/1
   # # GET /users/1.json
   def show
