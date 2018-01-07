@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :show, :delete]
+	before_action :authorize
 	def index
 	end
 
@@ -8,7 +9,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
+		@post = current_user.posts.build(post_params)
 		if @post.save
 			redirect_to @post, notice: "Your article was successfully saved"
 		else
@@ -49,4 +50,10 @@ class PostsController < ApplicationController
 	def find_post
     	@post = Post.find(params[:id])
   	end
+
+  	def authorize
+		unless current_user
+			redirect_to root_url, notice: "Пожалуйста, пройдите авторизацию"
+		end
+	end
 end

@@ -1,16 +1,11 @@
-<h1>Hello Rails</h1>
- <table>
-	<% @posts.each do |post| %>
+<% @user_posts.each do |post| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 	<td>
-		<%= @users[post.user_id]['email'].split('@')[0]%>
-		
+	Created by <%=@user['email'].split('@')[0]%>	
 	</td>
 	<td class="list_description">
 	<dl>
 	<dt><%= post.title %></dt>
 	<dd><%= truncate(strip_tags(post.content),
 	length: 80) %></dd>
-</dl>
-</td>
-<% end %>
+<%end%>

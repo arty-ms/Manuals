@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   get 'start_page/index'
   root 'start_page#index'
-  resources :posts
+  resources :posts, :start_page
+
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

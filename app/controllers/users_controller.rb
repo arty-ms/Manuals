@@ -8,14 +8,11 @@ class UsersController < ApplicationController
     session[:current_user_id] = user.id
   end
 
-  def create
-    if user = User.authenticate(params[:email], params[:password])
-      session[:current_user_id] = user.id
-  end
   # # GET /users/1
   # # GET /users/1.json
   def show
-
+    @user = set_user
+    @user_posts = Post.where(user_id: current_user.id).all
   end
 
   # GET /users/1/edit
@@ -40,7 +37,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
