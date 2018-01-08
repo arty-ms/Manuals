@@ -11,17 +11,23 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require dropzone/dropzone
  *= require_self
+ *= require trix
+
 
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ @import 'select2';
+
 
 .overlay {
 	position: absolute;
 	width: 100%;
 	height: 100vh;
+	z-index: 10;
 
 	background-color: rgba(0, 0, 0, .8);
 	display: none;
@@ -49,4 +55,24 @@
 		}
 	}
 }
+.confirm, .forgot, .sign_up, .log_in{
+	background-color: #D8D8D8;
+}
+.reg_log{
+	text-align: center;
+}
+.btn-primary{
+			margin:10px;
+		}
 
+.soc_buttons{
+	font-size: 24px;
+	li{
+		display: inline;
+		text-decoration: none;
+	}
+}
+
+.editor{
+	width: 100%;
+}

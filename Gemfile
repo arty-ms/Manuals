@@ -39,6 +39,13 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem "font-awesome-rails"
 gem 'activerecord-session_store'
+gem "paperclip", "~> 4.2"
+gem 'dropzonejs-rails'
+gem 'carrierwave'
+gem 'pg_search'
+gem 'select2-rails'
+gem 'underscore-rails'
+gem 'trix'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

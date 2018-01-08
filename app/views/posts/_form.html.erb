@@ -1,4 +1,4 @@
-<%=form_for @post do |f| %>
+<%=form_for @post,html: {id:'myForm'} do |f| %>
 	<%if @post.errors.any?%>
 		<h2><%= pluralize(@post.errors.count, "error") %>prevented this post from saving</h2>
 		<ul>
@@ -14,10 +14,16 @@
 
   <div class="form-group">
   	<%=f.label :content, "Write your article here"%><br>
-    <%= f.text_area :content %>
+    <%= f.trix_editor :content, class: 'editor' %>
   </div>
+
+    
+    
+ 
 
   <div class="form-group">
     <%= f.button :submit, class: "btn btn-primary"%>
   </div>
+  <br>
+
 <% end %>

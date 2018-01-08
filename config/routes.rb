@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'start_page/index'
   root 'start_page#index'
   resources :posts, :start_page
-
+  post 'uploadfiles'=>'posts#upload'
+  resources :picture, only: [:create]
+  resources :messages, only: [:new]
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,15 @@
+<div class="reg_log">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="new_post">
+
 <% @user_posts.each do |post| %>
+	<%unless @user_posts.count?%>
+		<h3>There are no posts yet</h3> 
+	<%else%>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 	<td>
 		
@@ -8,4 +19,5 @@
 	<dt><%= post.title %></dt>
 	<dd><%= truncate(strip_tags(post.content),
 	length: 80) %></dd>
+	<%end%>
 <%end%>

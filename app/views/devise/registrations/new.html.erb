@@ -1,7 +1,16 @@
+<div class="reg_log">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="sign_up">
+
 <%= flash[:notice] %>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -29,4 +38,11 @@
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end -%>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4">
+    </div>
+</div>
+</div>
+</div>
 

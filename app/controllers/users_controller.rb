@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   # # GET /users/1
   # # GET /users/1.json
   def show
-    @user = set_user
-    @user_posts = Post.where(user_id: current_user.id).all
+    
   end
 
   # GET /users/1/edit
