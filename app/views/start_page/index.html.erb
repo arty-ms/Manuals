@@ -1,17 +1,29 @@
-
+<div class="reg_log">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2">
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="start_page_index">
  <table>
 	<% @posts.each do |post| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-	<td>
-		<%= @users[post.user_id]['email'].split('@')[0]%>
-		
-	</td>
 	<td class="list_description">
 	<dl>
-	<dt><%= post.title %></dt>
-	<hr>
+	<dt><%=link_to post.title,post_path(post) %></dt>
+	<h6>username:<%= @users[post.user_id]['email'].split('@')[0]%></h6>
+	
 	<dd><%= truncate(strip_tags(post.content),
-	length: 80) %></dd>
+	length:200) %></dd>
+	<hr>
 </dl>
 </td>
+
 <% end %>
+</div>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2">
+    </div>
+</div>
+</div>
+</div>

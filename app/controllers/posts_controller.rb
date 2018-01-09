@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :show, :delete]
-	
+
   
 
 	def index
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 end
 	def create
 		@post = current_user.posts.build(post_params)
-		@picture = @post.pictures.build(params.require(:post).permit(:media))
+		
 		if @post.save 
 			redirect_to @post, notice: "Your article was successfully saved"
 		else
@@ -66,7 +66,7 @@ end
   	@post = Post.find(params[:id])	
     @post.destroy
       
-    redirect_to posts_path
+    redirect_to root_path
   end
 
 	private

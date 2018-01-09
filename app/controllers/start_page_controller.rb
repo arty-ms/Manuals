@@ -8,7 +8,9 @@ class StartPageController < ApplicationController
 
   end
   def show
-  	@user = User.find(current_user.id)
+    if current_user 
+    @user = User.find(current_user.id)
+  	end
     @user_posts = Post.where(user_id: current_user.id).all
   end
 end

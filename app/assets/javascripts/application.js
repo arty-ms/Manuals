@@ -40,28 +40,11 @@ $(document).mouseup(function (e) {
 		$('.js-overlay-campaign').fadeOut();		
 	}
 });
-var AUTH_TOKEN=$('meta[name="csrf-token"]').attr('content');
-  Dropzone.autoDiscover = false;
-  var myDropzone = new Dropzone("div#mydropzone",{
-    url: "/uploadfiles",
-    autoProcessQueue: false,
-    uploadMultiple: true,
-    addRemoveLinks:true,
-    parallelUploads:10,
-    params:{
-      'authenticity_token':  AUTH_TOKEN
-    },
-    successmultiple: function(data,response){
-      $('#msgBoard').append(response.message).addClass("alert alert-success");
-      $('#msgBoard').delay(2000).fadeOut();
-      $('#fileslist').val(response.filesList);
-      $('#myForm').off('submit').submit();
-    }
+ $('.theme-dark').click(function(){
+    $('.navbar-default').removeClass('navbar-default').addClass('navbar-inverse');
   });
-  $('#myForm').submit(function(e){
-  if(myDropzone.getQueuedFiles().length > 0){
-    e.preventDefault();
-    myDropzone.processQueue();
-  }
-});
+  $('.theme-white').click(function(){
+    $('.navbar-inverse').removeClass('navbar-inverse').addClass('navbar-default');
+  });
+
 });

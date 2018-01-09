@@ -46,6 +46,9 @@ gem 'pg_search'
 gem 'select2-rails'
 gem 'underscore-rails'
 gem 'trix'
+gem 'mini_magick'
+gem 'pygments.rb', '~> 0.6.0'
+gem 'redcarpet', '~>3.2.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

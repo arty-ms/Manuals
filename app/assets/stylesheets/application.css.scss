@@ -55,7 +55,7 @@
 		}
 	}
 }
-.confirm, .forgot, .sign_up, .log_in{
+.confirm, .forgot, .sign_up, .log_in, edit_user{
 	background-color: #D8D8D8;
 }
 .reg_log{
@@ -75,4 +75,11 @@
 
 .editor{
 	width: 100%;
+}
+
+#text{
+	text-align: center;
+}
+.theme-dark, .theme-white{
+	text-align: center;
 }
