@@ -45,7 +45,7 @@ end
 	end
 
 	def show
-  	
+  	@comments = Comment.where(post_id: @post.id).reverse_order
   	end
 
   	def edit

@@ -22,7 +22,10 @@
  @import "font-awesome";
  @import 'select2';
 
-
+body{
+	overflow-x:hidden;
+	margin: 5px;
+}
 .overlay {
 	position: absolute;
 	width: 100%;
@@ -83,3 +86,4 @@
 .theme-dark, .theme-white{
 	text-align: center;
 }
+

@@ -1,31 +1,19 @@
-<div class="reg_log">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4">
+<div class="row">
+	<% @posts.each do |post| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3><%=link_to post.title,post_path(post) %></h3>
+        
+        <p><%= truncate(strip_tags(post.content),
+	length:200) %></p>
+        <p><%=link_to 'Read',post_path(post), class: "btn btn-primary", role: "button"%></p>
+      </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4">
-      <div class="start_page_show">
+  </div>
+  <%end%>
+</div>
 
-<% @user_posts.each do |post| %>
-	<%unless @user_posts.count?%>
-		<h3>There are no posts yet</h3> 
-	<%else%>
-	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-	<td>
-		
-	</td>
-	<td class="list_description">
-	<dl>
-	<dt><%= post.title %></dt>
-	<dd><%= truncate(strip_tags(post.content),
-	length: 80) %></dd>
-	<%end%>
-<%end%>
 
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4">
-    </div>
-</div>
-</div>
-</div>
+	

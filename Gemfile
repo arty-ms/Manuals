@@ -48,7 +48,8 @@ gem 'underscore-rails'
 gem 'trix'
 gem 'mini_magick'
 gem 'pygments.rb', '~> 0.6.0'
-gem 'redcarpet', '~>3.2.2'
+gem 'redcarpet'
+gem 'rouge'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

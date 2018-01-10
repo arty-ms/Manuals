@@ -7,16 +7,38 @@
       <div class="show_post">
 
 
-<div class="col-sm-11 col-xs-12 blog-content">
+
   <h2 class="text-center"><%= @post.title %></h2>
   <h4 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h4>
   
-  <div><%=markdown raw @post.content %></div>
+  <div><%=markdown @post.content %></div>
   <div>
-  	<% if current_user%>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure"} %>
+  	<% if current_user && @post.user_id == current_user.id%>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" %>
+  <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary" %>
   <%end%>
+  <% if current_user%>
+     <h2>Add a comment:</h2>
+  <%=render 'form_comments' %>
+  <%= link_to 'Back to Posts', posts_path %>
+  <%end%>
+  <h2>Discussion</h2>
+  
+  
+    <% @comments.each do |comment|%>
+    <div class="comments">
+    <div id="commenter">
+      <li ><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= comment.commenter.split('@')[0]%></li>
+    </div>
+    <div id="comment_body">
+      <li><%= comment.body%></li>
+    </div>
+  </div>
+    <%end%>
+
+  </div>
+</div>
+</div>
 </div>
 </div>
 </div>
